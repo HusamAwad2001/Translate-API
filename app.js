@@ -6,6 +6,10 @@ const app = express();
 
 app.use(express.json());
 
+app.get("/profiles", (req, res) => {
+  res.status(200).send({ name: "Husam" });
+});
+
 app.post("/translate", async (req, res) => {
   const { msg, to } = req.body;
   const translation = await translate(msg, { from: "auto", to: to });
